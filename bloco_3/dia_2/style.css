@@ -27,16 +27,17 @@ p {
     font-size: 3em;
 }
 
-#yellow {
-    background-color: yellow;
+#green {
+    background-color: rgb(79, 117, 66);
 }
 
-#red {
-    background-color: red;
+#black {
+    background-color: rgb(38, 38, 38)
 }
 
-#brown {
-    background-color: brown;
+#white {
+    background-color: rgb(255, 255, 255);
+    color: black;
 }
 
 #deco {
