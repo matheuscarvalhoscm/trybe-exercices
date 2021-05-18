@@ -1,0 +1,81 @@
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: rgb(10, 21, 38);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(10, 21, 38);
+}
+
+#articles {
+    margin: 0 auto;
+    display: block;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+}
+
+#facts ul li {
+    list-style-type: none;
+}
+
+h3, h4 {
+    font-family: 'Kanit', sans-serif;
+    font-style: normal;
+    font-size: 25px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+#header {
+    text-align: center;
+    color: rgb(10, 21, 38);
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#navegation-links button {
+    font-family: 'Kanit';
+    margin: 0 auto;
+    list-style-type: none;
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex center;
+    text-align: center;
+    padding: 5px;
+}
+
+section {
+    margin: 10px 10px;
+    padding: 10px 10px;
+}
+
+table {
+    margin: 0 auto;
+}
+
+#navegation-links {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+
+
+
