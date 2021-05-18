@@ -76,6 +76,9 @@ table {
     margin: 0 auto;
 }
 
+#references ul li {
+    list-style-type: none;
+}
 
 
 
