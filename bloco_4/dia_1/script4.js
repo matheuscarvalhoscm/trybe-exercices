@@ -1,6 +1,6 @@
 // retorna se o valor é positivo ou negativo 
 
-var a = -3;
+let a = -3;
 
 if (a > 0) {
     console.log('positive')
