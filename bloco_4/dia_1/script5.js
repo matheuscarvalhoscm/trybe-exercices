@@ -12,4 +12,5 @@ if (a1 == 60 && a2 == 60 && a3 == 60) {
     
 } else {
     console.log(false);
+
 }
