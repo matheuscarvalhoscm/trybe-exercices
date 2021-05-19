@@ -1,7 +1,7 @@
 // retorna o maior de dois números
 
-var a = 1;
-var b = 2;
+let a = 1;
+let b = 2;
 
 if (a > b) {
   console.log(a);
