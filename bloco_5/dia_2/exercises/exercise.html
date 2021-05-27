@@ -61,9 +61,34 @@
       let body = document.getElementById('body');
       
       let exercise1 = document.createElement('h1');
-      exercise1.id = 'primeiroExercicio';
+      exercise1.id = 'titulo';
       exercise1.innerText = 'Exercício 5.2 - JavaScript DOM ';
       body.appendChild(exercise1);
+
+      let exercise2 = document.createElement('div');
+      exercise2.className = 'main-content';
+      body.appendChild(exercise2);
+
+      let mainContent = document.querySelector('.main-content');
+      let exercise3 = document.createElement('div');
+      exercise3.className = 'center-content';
+      mainContent.appendChild(exercise3);
+
+      let centerContent = document.querySelector('.center-content');
+      let exercise4 = document.createElement('p');
+      centerContent.appendChild(exercise4);
+
+      let exercise5 = document.createElement('div');
+      exercise5.className = 'left-content';
+      mainContent.appendChild(exercise5);
+
+      let exercise6 = document.createElement('div');
+      exercise6.className = 'right-content';
+      mainContent.appendChild(exercise6);
+      
+
+
+      
 
 
     </script>
