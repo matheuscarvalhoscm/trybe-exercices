@@ -145,6 +145,19 @@
 
       removeElement(mainContent, leftContent);
 
+      document.querySelector('.right-content').style.margin = 'auto';
+      document.querySelector('.center-content').style.backgroundColor = 'rgb(91, 181, 69)';
+
+      let listOfItems = document.querySelectorAll('.listItems');
+      for (index = 0; index < listOfItems.length; index += 1) {
+        let item = listOfItems[index];
+
+        if(item.innerText.includes('dez') || item.innerText.includes('nove')) {
+          unorderedList.removeChild(item);
+        }
+      }
+      
+
     </script>
   </body>
 </html>
