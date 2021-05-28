@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <script>
+      // COLOQUE SEU CÓDIGO AQUI]
+
+
+      let main = document.querySelector('#body');
+      
+      function addElement(tag, father, classe){
+      let variable = document.createElement(tag);
+      variable.className = classe;
+      return main.appendChild(variable);
+    } 
+        
+      addElement('h1', body, 'title');
+      document.querySelector('.title').innerHTML = 'Exercício 5.2 - JavaScript DOM';
+/*
+      let exercise2 = document.createElement('div');
+      exercise2.className = 'main-content';
+      body.appendChild(exercise2); */
+
+     
+      addElement('div', main, 'main-content'); 
+/*
+      let mainContent = document.querySelector('.main-content');
+      let exercise3 = document.createElement('div');
+      exercise3.className = 'center-content';
+      mainContent.appendChild(exercise3); */
+
+      let mainContent = document.querySelector('.main-content');
+      addElement('div', mainContent, 'center-content');
+
+
+  /*    let centerContent = document.querySelector('.center-content');
+      let exercise4 = document.createElement('p');
+      centerContent.appendChild(exercise4); */
+
+      let centerContent = document.querySelector('.center-content');
+      addElement('p', centerContent, 'paragraph');
+      document.querySelector('.paragraph').innerText = 'Ralando pra fazer isso aqui!'
+  /*
+      let exercise5 = document.createElement('div');
+      exercise5.className = 'left-content';
+      mainContent.appendChild(exercise5);
+ */
+      addElement('div', mainContent, 'left-content');
+ /*
+      let exercise6 = document.createElement('div');
+      exercise6.className = 'right-content';
+      mainContent.appendChild(exercise6); */
+      
+      addElement('div', mainContent, 'right');
+
+/* 
+      let leftContent = document.querySelector('.left-content');
+      let exercise7 = document.createElement('img');
+      exercise7.src = 'https://picsum.photos/200';
+      exercise7.className = 'small-image';
+      leftContent.appendChild(exercise7); */
+
+      let leftContent = document.querySelector('.left-content');
+      addElement('img', leftContent, 'small-image')
+      document.querySelector('.small-image').src = 'https://picsum.photos/200';
+/*
+
+      let rightContent = document.querySelector('.right-content');
+      let exercise8 = document.createElement('ul');
+      rightContent.appendChild(exercise8); */
+
+      let rightContent = document.querySelector('.right-content');
+      addElement('ul', rightContent,'unorderedList');
+
+
+
+    </script>
+  </body>
+</html>
