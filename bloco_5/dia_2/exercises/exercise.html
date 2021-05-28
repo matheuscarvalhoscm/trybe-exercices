@@ -67,8 +67,9 @@
       variable.className = classe;
       return main.appendChild(variable);
     } 
-        addElement('h1', body, 'title');
-        document.querySelector('.title').innerHTML = 'Exercício 5.2 - JavaScript DOM';
+        
+      addElement('h1', body, 'title');
+      document.querySelector('.title').innerHTML = 'Exercício 5.2 - JavaScript DOM';
 /*
       let exercise2 = document.createElement('div');
       exercise2.className = 'main-content';
@@ -82,36 +83,49 @@
       exercise3.className = 'center-content';
       mainContent.appendChild(exercise3); */
 
-      
+      let mainContent = document.querySelector('.main-content');
+      addElement('div', mainContent, 'center-content');
+
 
   /*    let centerContent = document.querySelector('.center-content');
       let exercise4 = document.createElement('p');
-      centerContent.appendChild(exercise4);
+      centerContent.appendChild(exercise4); */
 
+      let centerContent = document.querySelector('.center-content');
+      addElement('p', centerContent, 'paragraph');
+      document.querySelector('.paragraph').innerText = 'Ralando pra fazer isso aqui!'
+  /*
       let exercise5 = document.createElement('div');
       exercise5.className = 'left-content';
       mainContent.appendChild(exercise5);
-
+ */
+      addElement('div', mainContent, 'left-content');
+ /*
       let exercise6 = document.createElement('div');
       exercise6.className = 'right-content';
-      mainContent.appendChild(exercise6);
+      mainContent.appendChild(exercise6); */
+      
+      addElement('div', mainContent, 'right');
 
+/* 
       let leftContent = document.querySelector('.left-content');
       let exercise7 = document.createElement('img');
       exercise7.src = 'https://picsum.photos/200';
       exercise7.className = 'small-image';
-      leftContent.appendChild(exercise7);
+      leftContent.appendChild(exercise7); */
+
+      let leftContent = document.querySelector('.left-content');
+      addElement('img', leftContent, 'small-image')
+      document.querySelector('.small-image').src = 'https://picsum.photos/200';
+/*
 
       let rightContent = document.querySelector('.right-content');
       let exercise8 = document.createElement('ul');
-      rightContent.appendChild(exercise8);
+      rightContent.appendChild(exercise8); */
 
-      let array = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', '10']
-      for (index < 0; index < array.length; index =+ 1) {
-      let exercise82 = document.createElement('li')[index];
-    } rightContent.appendChild(exercise82);
+      let rightContent = document.querySelector('.right-content');
+      addElement('ul', rightContent,'unorderedList');
 
-  */   
 
 
     </script>
