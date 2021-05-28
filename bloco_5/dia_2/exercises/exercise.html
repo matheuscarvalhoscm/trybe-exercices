@@ -135,7 +135,15 @@
         addElement('li', 'listItems', unorderedList).innerText = list[index]
       } 
 
+      addElement('h3', 'description', mainContent);
+      addElement('h3', 'description', mainContent);
+      addElement('h3', 'description', mainContent);
 
+      function removeElement(fatherElement, child) {
+        return fatherElement.removeChild(child);
+      }
+
+      removeElement(mainContent, leftContent);
 
     </script>
   </body>
