@@ -62,21 +62,21 @@
 
       let main = document.querySelector('#body');
       
-      function addElement(tag, father, classe){
+      function addElement(tag, classe, parentElement) {
       let variable = document.createElement(tag);
       variable.className = classe;
-      return main.appendChild(variable);
+      return parentElement.appendChild(variable);
     } 
         
-      addElement('h1', body, 'title');
-      document.querySelector('.title').innerHTML = 'Exercício 5.2 - JavaScript DOM';
+      addElement('h1', 'title', main);
+      document.querySelector('.title').innerText = 'Exercício 5.2 - JavaScript DOM';
 /*
       let exercise2 = document.createElement('div');
       exercise2.className = 'main-content';
       body.appendChild(exercise2); */
 
      
-      addElement('div', main, 'main-content'); 
+      addElement('div', 'main-content', main); 
 /*
       let mainContent = document.querySelector('.main-content');
       let exercise3 = document.createElement('div');
@@ -84,7 +84,7 @@
       mainContent.appendChild(exercise3); */
 
       let mainContent = document.querySelector('.main-content');
-      addElement('div', mainContent, 'center-content');
+      addElement('div', 'center-content', mainContent);
 
 
   /*    let centerContent = document.querySelector('.center-content');
@@ -92,20 +92,20 @@
       centerContent.appendChild(exercise4); */
 
       let centerContent = document.querySelector('.center-content');
-      addElement('p', centerContent, 'paragraph');
+      addElement('p', 'paragraph', centerContent );
       document.querySelector('.paragraph').innerText = 'Ralando pra fazer isso aqui!'
   /*
       let exercise5 = document.createElement('div');
       exercise5.className = 'left-content';
       mainContent.appendChild(exercise5);
  */
-      addElement('div', mainContent, 'left-content');
+      addElement('div', 'left-content', mainContent);
  /*
       let exercise6 = document.createElement('div');
       exercise6.className = 'right-content';
       mainContent.appendChild(exercise6); */
       
-      addElement('div', mainContent, 'right');
+      addElement('div', 'right-content', mainContent);
 
 /* 
       let leftContent = document.querySelector('.left-content');
@@ -115,7 +115,7 @@
       leftContent.appendChild(exercise7); */
 
       let leftContent = document.querySelector('.left-content');
-      addElement('img', leftContent, 'small-image')
+      addElement('img', 'small-image', leftContent)
       document.querySelector('.small-image').src = 'https://picsum.photos/200';
 /*
 
@@ -124,9 +124,39 @@
       rightContent.appendChild(exercise8); */
 
       let rightContent = document.querySelector('.right-content');
-      addElement('ul', rightContent,'unorderedList');
+      addElement('ul','ulList', rightContent);
 
+      let unorderedList = document.querySelector('.ulList');
+      
+      let list = ['um', 'dois', 'trê', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+      //1.  pegar todos os elementos da lista, um por um.
+      for (let index = 0; index < list.length; index += 1) {
+        let listItem = list[index];
+        addElement('li', 'listItems', unorderedList).innerText = list[index]
+      } 
 
+      addElement('h3', 'description', mainContent);
+      addElement('h3', 'description', mainContent);
+      addElement('h3', 'description', mainContent);
+
+      function removeElement(fatherElement, child) {
+        return fatherElement.removeChild(child);
+      }
+
+      removeElement(mainContent, leftContent);
+
+      document.querySelector('.right-content').style.margin = 'auto';
+      document.querySelector('.center-content').style.backgroundColor = 'rgb(91, 181, 69)';
+
+      let listOfItems = document.querySelectorAll('.listItems');
+      for (index = 0; index < listOfItems.length; index += 1) {
+        let item = listOfItems[index];
+
+        if(item.innerText.includes('dez') || item.innerText.includes('nove')) {
+          unorderedList.removeChild(item);
+        }
+      }
+      
 
     </script>
   </body>
