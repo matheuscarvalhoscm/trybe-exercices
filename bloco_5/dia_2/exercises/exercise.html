@@ -58,23 +58,33 @@
   <body id="body">
     <script>
       // COLOQUE SEU CÓDIGO AQUI]
-      let body = document.getElementById('body');
-      
-      let exercise1 = document.createElement('h1');
-      exercise1.id = 'titulo';
-      exercise1.innerText = 'Exercício 5.2 - JavaScript DOM ';
-      body.appendChild(exercise1);
 
+
+      let main = document.querySelector('#body');
+      
+      function addElement(tag, father, classe){
+      let variable = document.createElement(tag);
+      variable.className = classe;
+      return main.appendChild(variable);
+    } 
+        addElement('h1', body, 'title');
+        document.querySelector('.title').innerHTML = 'Exercício 5.2 - JavaScript DOM';
+/*
       let exercise2 = document.createElement('div');
       exercise2.className = 'main-content';
-      body.appendChild(exercise2);
+      body.appendChild(exercise2); */
 
+     
+      addElement('div', main, 'main-content'); 
+/*
       let mainContent = document.querySelector('.main-content');
       let exercise3 = document.createElement('div');
       exercise3.className = 'center-content';
-      mainContent.appendChild(exercise3);
+      mainContent.appendChild(exercise3); */
 
-      let centerContent = document.querySelector('.center-content');
+      
+
+  /*    let centerContent = document.querySelector('.center-content');
       let exercise4 = document.createElement('p');
       centerContent.appendChild(exercise4);
 
@@ -101,7 +111,8 @@
       let exercise82 = document.createElement('li')[index];
     } rightContent.appendChild(exercise82);
 
-    
+  */   
+
 
     </script>
   </body>
