@@ -8,13 +8,36 @@ const myWebpage = document.getElementById('mySpotrybefy');
 // 1. Crie uma função que adicione a classe 'tech' ao elemento selecionado;
 //Deve existir apenas um elemento com a classe 'tech'. Como você faz isso?
 
+divUm.addEventListener("click", addClass1);
+divDois.addEventListener("click", addClass2);
+divTres.addEventListener("click", addClass3);
 
+function addClass1(){
+  divUm.className = 'tech';
+  divDois.className = 'none';
+  divTres.className = 'none';
+}
+function addClass2(){
+  divDois.className = 'tech';
+  divUm.className = 'none';
+  divTres.className = 'none';
+}
+function addClass3(){
+  divTres.className = 'tech';
+  divUm.className = 'none';
+  divDois.className = 'none';
+}
 
 
 
 
 // 2. Crie uma função que, ao digitar na caixa de texto, altere o texto do elemento
 //com a classe 'tech';
+
+function changeText() {
+  let divchange = document.getElementsByClassName('tech');
+
+}
 
 
 // 3. Crie uma função que, ao clicar duas vezes em 'Meu top 3 do Spotrybefy', ele
@@ -30,6 +53,7 @@ function redirect(){
  portfolio.target = '_blank';
  link.innerHTML = portfolio.innerHTML;
  portfolio.innerHTML = 'Meu top 3 do Spotrybefy';
+ portfolio.style.textDecoration = 'none';
  link.appendChild(portfolio);
 }
 
