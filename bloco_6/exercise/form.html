@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type=text/styleshee" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Formulário para CV</title>
 </head>
 <body>
@@ -13,13 +13,14 @@
     </header>
 
     <form action="" method="GET">
-        <fieldset>
+        <fieldset class="form-style">
+            <h2>Dados Pessoais:</h2>
             <label for="input-name"> Insira seu nome:</label>
                 <input type="text" name="name" id="input-name" maxlength="40" required>
             
                 <br><br>
 
-            <label for="input-email"> Insira seu e-mail:</label>
+            <label for="input-email">Insira seu e-mail:</label>
                 <input type="email" name="email" id="input-email" maxlength="50" autocomplete="off" required>
             
             <br><br>
@@ -40,14 +41,12 @@
             
             <br>
             <label for="type-of-house"> Tipo:</label>
-                <input type="radio" name="type-house" id="type-of-house" required> Casa
-                <input type="radio" name="type-house" id="type-of-house" required> Apartamento
-            
+                <input type="radio" name="type-house" value="house" id="type-of-house" required> Casa
+                <input type="radio" name="type-house" value="apt" id="type-of-house" required> Apartamento
         </fieldset>
-    </form>
     
-    <fieldset>
-        <form action="" method="GET">
+    <fieldset class="form-style">
+            <h2>Dados Profissionais:</h2>
             <label for="input-resume"><legend>Resumo do seu CV:</legend></label>
             <textarea name="resume" id="input-resume" cols="100" rows="10" maxlength="1000"></textarea>
 
@@ -66,8 +65,12 @@
             <label for="input-date"><legend>Data de início</legend></label>
             <input type="date" name="date" id="input-date">
 
-        </form>
+            <br>
+
+            <button type="submit" id="submit-info" class="send-info">Enviar</button>
+            <button type="reset">Limpar</button>
     </fieldset>
+</form>
     
 </body>
 <script type="text/javascript" src="script.js"></script>

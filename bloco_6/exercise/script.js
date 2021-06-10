@@ -40,3 +40,9 @@ function addStates() {
 }
 
 addStates();
+
+const sendButton = document.querySelector('#submit-info');
+sendButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    alert("Não vou enviar suas infos");
+});
