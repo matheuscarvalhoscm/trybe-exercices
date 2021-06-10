@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulário para CV</title>
+</head>
+<body>
+    <header>
+        <h1>Cadastro de CV</h1>
+    </header>
+
+    <form action="" method="GET">
+        <fieldset class="form-style">
+            <h2>Dados Pessoais:</h2>
+            <label for="input-name"> Insira seu nome:</label>
+                <input type="text" name="name" id="input-name" maxlength="40" required>
+            
+                <br><br>
+
+            <label for="input-email">Insira seu e-mail:</label>
+                <input type="email" name="email" id="input-email" maxlength="50" autocomplete="off" required>
+            
+            <br><br>
+
+            <label id="input-cpf">Insira seu CPF:</label>
+                <input type="text" name="cpf" id="input-cpf" maxlength="11" autocomplete="off">
+            
+            <br><br>
+
+            <label for="input-adress"> Endereço:</label>
+                <input type="text" name="endereco" id="input-adress" maxlength="200" required>
+            
+            <label for="input-city">Cidade:</label>
+                <input type="text" name="city" id="input-city" maxlength="28" required>
+            
+            <label for="input-state"> Estado:</label>
+                <select name="state" id="input-state"></select>
+            
+            <br>
+            <label for="type-of-house"> Tipo:</label>
+                <input type="radio" name="type-house" value="house" id="type-of-house" required> Casa
+                <input type="radio" name="type-house" value="apt" id="type-of-house" required> Apartamento
+        </fieldset>
+    
+    <fieldset class="form-style">
+            <h2>Dados Profissionais:</h2>
+            <label for="input-resume"><legend>Resumo do seu CV:</legend></label>
+            <textarea name="resume" id="input-resume" cols="100" rows="10" maxlength="1000"></textarea>
+
+            <br><br>
+
+            <label for="input-position"><legend>Cargo:</legend></label>
+            <input type="text" name="position" id="input-position" maxlength="40" required>
+
+            <br><br>
+
+            <label for="input-position-description"><legend>Descrição do cargo:</legend></label>
+            <textarea type="text" name="position-description" id="input-position-description" cols="100" rows="5" maxlength="500"></textarea>
+
+            <br>
+
+            <label for="input-date"><legend>Data de início</legend></label>
+            <input type="date" name="date" id="input-date">
+
+            <br>
+
+            <button type="submit" id="submit-info" class="send-info">Enviar</button>
+            <button type="reset">Limpar</button>
+    </fieldset>
+</form>
+    
+</body>
+<script type="text/javascript" src="script.js"></script>
+</html>
