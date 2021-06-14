@@ -1,21 +1,111 @@
-body {
-    background-color: rgb(235, 235, 235);
-    margin: 0px;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu';
+  }
+  
+  body {
+    background-color: rgb(247, 247, 247);
+  }
+  
+  .header-container {
+    background-color: #5C687C;
+    display: flex;
+    /* exercise 1 */
+    flex-basis: 258px;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    /* exercise 2 */
+    order: 1;
+  }
+  
+  .menu-container {
+    display: flex;
+    /* exercise 1 */
+    flex-basis: 500px;
+    /* exercise 2 */
+    order: 2;
+    /* exercise 3 */
+    flex-grow: 1;
+    /* exercise 4 */
+    align-self: center;
+  }
+  
+  .menu-container ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .menu-container li {
+    color: white;
+    font-weight: 500;
+    font-size: 1.3rem;
+    list-style: none;
+    margin-right: 10px;
+  }
 
-.form-style {
-    background-color: rgb(255, 255, 255);
-    padding: 15px;
-    margin: 15px 10%;
-    border: 1px solid rgb(207, 207, 207);
-}
-
-header {
-    background-color: rgb(255, 255, 255);
-    padding: 5px;
-    border: 0px;
-}
-
-.send-info {
-    margin-top: 20px;
-}
+  .main-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .movie-container {
+    display: flex;
+    flex-direction: column;
+    /* part 2 exercise 3 */
+    flex-basis: 700px;
+    /* part 2 exercise 4 */
+    flex-grow: 10;
+  }
+  
+  .movie-container h2 {
+    margin: 40px 0;
+    text-align: center;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .card-container div {
+    align-items: center;
+    background-color: #5C687C;
+    border: black solid 1px;
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    margin: 10px;
+    /* part 2 exercise 3 */
+    flex-basis: 16%;
+    /* part 2 exercise 5 */
+    flex-grow: 1;
+  }
+  
+  .aside-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    /* part 2 exercise 1 */
+    flex-basis: 350px;
+    /* part 2 exercise 2 */
+    flex-grow: 1;
+    /* part 2 exercise 2 */
+    align-self: center;
+  }
+  
+  .aside-container h3, h4 {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .aside-container p {
+    margin: 10px 0;
+    text-align: justify;
+  }
