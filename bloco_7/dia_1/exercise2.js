@@ -1,11 +1,11 @@
-// const factorial = number => {
-// 	let result = 0;
-// 	for (let index = number-1; index > 0; index -= 1) {
-// 			result += number * index;
-// 	} return result;
-// } 
+const factorial = number => {
+	let result = 1;
+	for (let index = 1; index <= number; index += 1) {
+			result *= index;
+	} return result;
+} 
 
-// console.log(`O faltorial é ${factorial(5)}`);
+console.log(`O faltorial é ${factorial(4)}`);
 
 
 // esse link ajudou https://stackoverflow.com/questions/17386774/javascript-find-longest-word-in-a-string?page=1&tab=votes#tab-top
