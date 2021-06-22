@@ -2,7 +2,7 @@ const assert = require('assert');
 // escreva a função addOne aqui
 
 const addOne = (array) => {
-    const output = []; // não entendi pq criar o output aqui
+    const output = []; 
     for (let index = 0; index < array.length; index += 1) {
         output.push(array[index] + 1);
     } return output;
