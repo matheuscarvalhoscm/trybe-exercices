@@ -16,7 +16,7 @@ const sendMarsTemperature = (callBack, anotherCallback) => {
 	const currentTemperature = getMarsTemperature();
 	setTimeout(() => {
 		const didOperationSucceed = Math.random() >= 0.6;
-		didOperationSucceed === true ?  callBack(currentTemperature) : anotherCallback('Robot is busy');
+		didOperationSucceed === true ? callBack(currentTemperature) : anotherCallback('Robot is busy');
 	}, messageDelay());
 }
 
