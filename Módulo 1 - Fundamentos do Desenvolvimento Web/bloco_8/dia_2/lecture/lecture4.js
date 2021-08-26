@@ -1,3 +1,5 @@
+
+//  ex 1
 const people = [
     { name: 'Mateus', age: 18 },
     { name: 'José', age: 16 },
@@ -8,4 +10,20 @@ const people = [
   
 people.sort((value1, value2) => value1.age - value2.age);
   
-  console.log(people);
+
+console.log(people);
+
+//  ex 2
+
+const people = [
+  { name: 'Mateus', age: 18 },
+  { name: 'José', age: 16 },
+  { name: 'Ana', age: 23 },
+  { name: 'Cláudia', age: 20 },
+  { name: 'Bruna', age: 19 },
+];
+
+people.sort((value1, value2) => value2.age - value1.age);
+
+console.log(people);
+
