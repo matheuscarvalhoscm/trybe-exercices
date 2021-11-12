@@ -1,0 +1,24 @@
+version: '3' # definindo a versão do compose. o arquivo compose sempre DEVE inciar com o VERSION.
+services: # aqui definimos os services para o compose. services são os "tipos" de containers que iremos rodar, ex: apis, front-end, back-end, banco de dados... cada service "roda um - docker container run"
+  frontend:
+  # comandos para montar o container
+    image: mjgargani/compose-example:frontend-trybe1.0
+    restart: always # restart define se o container vai reiniciar em caso de erro
+    ports: # aqui realizamos o bind das portas assim como fazemos com o comando -p, sendo o primeiro parametro a porta do host e o segundo a porta do container.
+      - 3000:3000
+    depends_on: # aqui passamos as dependencias que o nosso container tem de outros serviços. essa flag nos permite indicar a ordem de inicialização. nesse exemplo o database será inciado antes de backend, e backend será inciado antes do front end, conforme as dependencias estabelecidas em "depends_on"
+      - "backend"
+  backend:
+  # comandos para montar o conatiner
+    image: mjgargani/compose-example:backend-trybe1.0
+    restart: always
+    ports:
+      - 3001:3001
+    # enviroment: # aqui passamos a variavel de ambiente do container
+      # - DB_HOST=database
+    depends_on:
+      - "database"
+  database:
+  # comandos para montar o container
+    image: mjgargani/compose-example:database-trybe1.0
+    restart: always
