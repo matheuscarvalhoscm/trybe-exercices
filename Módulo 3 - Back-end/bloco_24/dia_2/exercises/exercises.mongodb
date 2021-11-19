@@ -1,7 +1,7 @@
 use("class");
 db.movies.find();
 
-// Exercício 1: Adicione a categoria "superhero" ao filme Batman .
+Exercício 1: Adicione a categoria "superhero" ao filme Batman .
 db.movies.updateOne(
   { title: "Batman" },
   { $push: { category: "superhero" } }
@@ -69,4 +69,13 @@ db.movies.updateMany(
 				]
 			}
 	 } }
+);
+
+// Exercício 9: Adicione o campo character com o valor Marv ao array de cast em que o campo actor seja igual a Daniel Stern no filme Home Alone .
+db.movies.updateOne(
+  { title: "Home Alone" },
+  { $set: {
+      "cast.$[element].character": "Marv"
+  } },
+  { arrayFilters: [{ "element.actor": "Daniel Stern" }] }
 );
