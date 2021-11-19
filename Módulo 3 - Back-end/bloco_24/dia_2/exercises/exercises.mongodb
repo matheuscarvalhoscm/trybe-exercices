@@ -100,7 +100,7 @@ db.movies.updateOne(
 db.movies.updateOne(
   { title: "Batman" },
   { $set: {
-      "cast.$[element].actor": "Christian Bale"
+      "cast.$[element].actor": ["Christian Bale"]
   } },
   { arrayFilters: [{ "element.character": "Batman" }] }
 );
@@ -109,7 +109,7 @@ db.movies.updateOne(
 db.movies.updateOne(
   { title: "Batman" },
   { $set: {
-      "cast.$[element].actor": "Michael Caine"
+      "cast.$[element].actor": ["Michael Caine"]
   } },
   { arrayFilters: [{ "element.character": "Alfred" }] }
 );
@@ -118,7 +118,19 @@ db.movies.updateOne(
 db.movies.updateOne(
   { title: "Batman" },
   { $set: {
-      "cast.$[element].actor": "Heath Ledger" 
+      "cast.$[element].actor": ["Heath Ledger"] 
   } },
   { arrayFilters: [{ "element.character": "Joker" }] }
+);
+
+// Exercício 12: Adicione aos atores de cast do character Batman do filme Batman os valores "Michael Keaton" , "Val Kilmer" e "George Clooney" , e deixe o array em ordem alfabética.
+db.movies.updateOne(
+  { title: "Batman" },
+  { $push: { 
+      "cast.$[element].actor": { 
+        $each: ["Michael Keaton" , "Val Kilmer", "George Clooney"],
+        $sort: 1
+       }
+   } },
+   { arrayFilters: [{ "element.character": "Batman" }] }
 );
