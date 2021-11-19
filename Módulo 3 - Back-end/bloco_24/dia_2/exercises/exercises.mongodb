@@ -1,7 +1,7 @@
 use("class");
 db.movies.find();
 
-Exercício 1: Adicione a categoria "superhero" ao filme Batman .
+// Exercício 1: Adicione a categoria "superhero" ao filme Batman .
 db.movies.updateOne(
   { title: "Batman" },
   { $push: { category: "superhero" } }
@@ -78,4 +78,18 @@ db.movies.updateOne(
       "cast.$[element].character": "Marv"
   } },
   { arrayFilters: [{ "element.actor": "Daniel Stern" }] }
+);
+
+// Exercício 10: Crie um array de documentos chamado cast para o filme Batman com os seguintes dados:
+db.movies.updateOne(
+  { title: "Batman" },
+  { $push: {
+      cast: { 
+        $each: [
+          { character: "Batman" },
+          { character: "Alfred" },
+          { character: "Joker" },
+        ]
+       }
+  } }
 );
