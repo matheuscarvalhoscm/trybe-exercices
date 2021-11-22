@@ -2,16 +2,20 @@ db.movies.find();
 
 // 1.Utilizando o operador $all , retorne todos os filmes que contenham action e adventure no array category .
 db.movies.find(
-  { category: 
-		{ $all: ["action", "adventure"] } 
+  { category: { 
+			$all: ["action", "adventure"] 
+		} 
 	}
 );
 
 // 2.Agora retorne os filmes que contenham action no array category e possuem nota do IMDB maior do que 7 .
 db.movies.find(
-	{ category: 
-		{ $all: ["action"] }, 
-		imdbRating: { $gt: 7 } 
+	{ category: { 
+			$all: ["action"] 
+		}, 
+		imdbRating: { 
+			$gt: 7 
+		} 
 	}
 );
 
@@ -26,5 +30,13 @@ db.movies.update(
 	}
 );
 
-
-
+// Adicione um array chamado ratings ao filme Godzilla com os seguintes valores: [78, 52, 95, 102] .
+db.movies.update(
+	{ title: "Godzilla" },
+	{ $push: {
+			ratings: {
+				$each: [78, 52, 95, 102]
+			}		
+		} 
+	}
+);
