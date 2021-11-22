@@ -55,12 +55,30 @@ db.movies.update(
 // 6. Retorne todos os filmes com ratings maior do que 103 , exibindo apenas os campos title e ratings .
 db.movies.find(
 	{ ratings: {
-			$elemMatch: { $gt: 103 }
+			$elemMatch: { 
+				$gt: 103 
+			}
 		} 
 	},
 	{ 
 		_id: false,
 		title: true,
 		ratings: true
+	},
+);
+
+// 7. Retorne todos os filmes com ratings entre 100 e 105 , exibindo apenas os campos title e ratings .
+db.movies.find(
+	{ ratings: {
+			$elemMatch: { 
+				$gt: 100,
+				$lt: 105,
+			}
+		} 
+	}, 
+	{
+		_id: false,
+		title: true,
+		ratings: true,
 	},
 );
