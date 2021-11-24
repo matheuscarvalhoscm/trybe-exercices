@@ -1,0 +1,6 @@
+use("agg_example"); 
+db.transactions.find();
+
+db.transactions.aggregate(
+  { $match: { from: "Dave America" } },
+);
