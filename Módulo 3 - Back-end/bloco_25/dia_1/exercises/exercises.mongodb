@@ -62,3 +62,17 @@ db.clientes.aggregate([
     }
   }
 ]);
+
+// Exercício 6: Agrupe os clientes por sexo e uf . Retorne o total de clientes de cada sexo no campo total .
+db.clientes.aggregate([
+  {
+    $group: {
+      // ref para utilizar group com múltiplos ids: https://stackoverflow.com/questions/22932364/mongodb-group-values-by-multiple-fields 
+      _id: {
+        sexo: "$sexo",
+        UF: "$endereco.uf"
+      },
+      total: { $sum: 1 }
+    }
+  }
+]);
