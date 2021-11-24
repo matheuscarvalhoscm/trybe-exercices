@@ -53,3 +53,21 @@ db.transactions.aggregate([
 		}
 	}
 ]);
+
+db.transactions.aggregate([
+	{
+		$group: {
+			_id: "$bank",
+			transactionsAmount: {
+				$sum: "$value"
+			}
+		}
+	},
+	{
+		$match: {
+			transactionsAmount: { 
+				$gt: 1000
+			}
+		}
+	},
+]);
