@@ -2,10 +2,10 @@ use("agg_example");
 db.transactions.find();
 
 db.transactions.aggregate(
-  { $match: { from: "Dave America" } },
+  [{ $match: { from: "Dave America" } }],
 );
 
-db.transactions.aggregate(
+db.transactions.aggregate([
   {
 		$match: {
 			$or: [
@@ -14,9 +14,17 @@ db.transactions.aggregate(
 			]
 		}
 	}
-);
+]);
 
-db.transactions.aggregate(
+db.transactions.aggregate([
 	{ $match: { value: { $gt: 1000 } } },
 	{ $limit: 3 }
-);
+]);
+
+db.transactions.aggregate([
+	{
+		$group: {
+			_id: "$bank"
+		}
+	}
+]);
