@@ -28,3 +28,17 @@ db.transactions.aggregate([
 		}
 	}
 ]);
+
+db.transactions.aggregate([
+	{
+		$group: {
+			_id: "$bank",
+			transactionsAmount: {
+				$sum: "$value"
+			},
+			totalTransactions: {
+				$sum: 1
+			}
+		}
+	}
+]);
