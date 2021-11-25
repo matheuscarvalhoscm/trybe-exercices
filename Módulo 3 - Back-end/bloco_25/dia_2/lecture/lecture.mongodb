@@ -179,3 +179,16 @@ db.products.aggregate([
 		}
 	}
 ]);
+
+// 11. Calcule qual será o preço de venda de cada produto caso haja uma promoção de 50% de desconto.
+db.products.aggregate([
+	{
+		$project: {
+			_id: false,
+			name: true,
+			priceWithDiscount: {
+				$divide: ["$sale_price", 2]
+			}
+		}
+	}
+]);
