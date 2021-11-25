@@ -117,3 +117,18 @@ db.products.aggregate([
 		}
 	}
 ]);
+
+// 7. Retorne o maior número inteiro relativo ao lucro total sobre cada produto. Nota: Desconsiderar taxas (taxes)
+db.products.aggregate([
+	{
+		$project: {
+			_id: false,
+			name: true,
+			profits: {
+				$ceil: {
+					$subtract: ["$sale_price", "$purchase_price"]
+				}
+			}
+		}
+	}
+]);
