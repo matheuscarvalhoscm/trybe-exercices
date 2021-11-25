@@ -163,3 +163,19 @@ db.products.aggregate([
 		}
 	}
 ]);
+
+// 10. Calcule qual será o lucro total de cada produto caso todo o estoque seja vendido.
+db.products.aggregate([
+	{
+		$project: {
+			_id: false,
+			name: true,
+			totalProfits: {
+				$subtract: [
+					{ $multiply: ["$sale_price", "$quantity"] },
+					{ $multiply: [{ $add: ["$purchase_price", "$taxes"] }, "$quantity"] }
+				]
+			}
+		}
+	}
+]);
