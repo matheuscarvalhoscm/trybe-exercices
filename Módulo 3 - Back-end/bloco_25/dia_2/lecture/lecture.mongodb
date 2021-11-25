@@ -106,3 +106,14 @@ db.products.aggregate([
 		}
 	}
 ]);
+
+// 6. Retorne o menor número inteiro relativo ao preço de venda de cada produto;
+db.products.aggregate([
+	{
+		$project: {
+			_id: false,
+			name: true,
+			floorSalePrice: { $floor: "$sale_price" }
+		}
+	}
+]);
