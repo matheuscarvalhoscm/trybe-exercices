@@ -74,3 +74,19 @@ db.clients.aggregate([
 		}
 	}
 ]);
+
+use("storage");
+db.products.find();
+
+// 4. Calcule qual o custo total de cada produto, considerando o preço de compra e os impostos.
+db.products.aggregate([
+	{
+		$project: {
+			_id: false,
+			name: true,
+			totalPrice: {
+				$add: ["$purchase_price", "$taxes"]
+			}
+		}
+	}
+]);
