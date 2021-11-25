@@ -150,3 +150,16 @@ db.products.aggregate([
 		}
 	}
 ]);
+
+// 9. Calcule qual o valor total em estoque de cada produto, considerando o preço de venda e a quantidade;
+db.products.aggregate([
+	{
+		$project: {
+			_id: false,
+			name: true,
+			totalAmountInStock: {
+				$multiply: ["$sale_price", "$quantity"]
+			}
+		}
+	}
+]);
