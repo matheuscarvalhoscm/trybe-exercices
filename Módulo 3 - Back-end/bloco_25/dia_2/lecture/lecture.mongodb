@@ -12,9 +12,7 @@ db.clients.aggregate([
         {
           $match: {
             $expr: {
-              $and: [
-                { $eq: ["$from", "$$client"] }
-              ]
+							$eq: ["$from", "$$client"] 
             }
           }
         }
@@ -33,10 +31,8 @@ db.clients.aggregate([
 			pipeline: [
 				{
 					$match: {
-						$expr: {
-							$and: [
-								{ $eq: ["$to", "$$client"] }
-							]
+						$expr: { 
+							$eq: ["$to", "$$client"] 
 						}
 					}
 				}
@@ -44,6 +40,11 @@ db.clients.aggregate([
 			as: "received_transactions"
 		}
   },
+	{
+		$sort: {
+			State: 1
+		}
+	},
 	{
 		$limit: 4
 	}
@@ -63,10 +64,8 @@ db.clients.aggregate([
 			pipeline: [
 				{
 					$match: {
-						$expr: {
-							$and: [
-								{ $eq: ["$to", "$$client"] }
-							]
+						$expr: { 
+							$eq: ["$to", "$$client"] 
 						}
 					}
 				}
