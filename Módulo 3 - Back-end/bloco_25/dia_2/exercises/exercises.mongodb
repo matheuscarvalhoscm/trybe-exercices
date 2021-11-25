@@ -1,0 +1,19 @@
+use("erp");
+db.clientes.find();
+
+// Exercício 1 : Utilize uma combinação das expressões aritméticas e adicione um campo chamado idade à coleção clientes
+// espiei o gabarito para entender como converter os milissegundos em anos hihi
+db.clientes.aggregate([
+  {
+    $addFields: {
+      idade: {
+        $floor: {
+          $divide: [
+            { $subtract: ["$$NOW", "$dataNascimento"] },
+            { $multiply: [86400000 * 365] }
+          ]
+        }
+      }
+    }
+  }
+]);
