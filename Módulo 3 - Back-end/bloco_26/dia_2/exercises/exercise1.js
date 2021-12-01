@@ -14,6 +14,8 @@ const countNumbers = (num1, num2, num3) => {
   return promise
 }
 
-countNumbers(0, 10, 5)
-  .then(res => console.log(`O valor obtido foi: ${res}`))
-  .catch(err => console.log(err.message));
+// countNumbers(0, 10, 5)
+//   .then(res => console.log(`O valor obtido foi: ${res}`))
+//   .catch(err => console.log(err.message));
+
+module.exports = { countNumbers };
