@@ -5,4 +5,6 @@ const positiveOrNegative = (num) => {
 	if (isNaN(num)) return 'por favor, insira um número';
 };
 
+// exercícios 2 e 3 foram fetios no commit anterior;
+
 module.exports = positiveOrNegative;
