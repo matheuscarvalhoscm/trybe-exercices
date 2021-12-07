@@ -7,6 +7,7 @@ const greetingsMiddleware = require('./middlewares/greetingsMiddleware');
 const usersNameAgeMiddleWare = require('./middlewares/usersNameAgeMiddleware');
 const getSimpsonsMiddleware = require('./middlewares/getSimpsonsMiddleware');
 const getSimpsonId = require('./middlewares/getSimpsonId');
+const registerSimpson = require('./middlewares/registerSimpsonMiddleware');
 
 const port = 3030;
 const app = express();
@@ -23,5 +24,7 @@ app.put('/users/:name/:age', usersNameAgeMiddleWare);
 app.get('/simpsons', getSimpsonsMiddleware);
 
 app.get('/simpsons/:id', getSimpsonId);
+
+app.post('/simpsons', registerSimpson);
 
 app.listen(port, () => console.log(`App rodando na porta: ${port}`));
