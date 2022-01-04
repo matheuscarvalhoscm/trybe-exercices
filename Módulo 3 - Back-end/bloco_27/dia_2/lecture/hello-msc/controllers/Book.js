@@ -33,7 +33,7 @@ const createBook = async (req, res) => {
 
   if (!book) return res.status(400).json({ message: 'Invalid Input' });
   
-  Book.createBook(title, author_id);
+  book;
 
   return res.status(201).json({ message: 'Book created successfully' });
 }
