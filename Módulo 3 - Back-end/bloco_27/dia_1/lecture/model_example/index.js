@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 
 const Author = require('./models/Author');
 const Books = require('./models/Books');
+const User = require('./models/User');
 
 const app = express();
 
@@ -80,6 +81,23 @@ app.post('/books', async (req, res) => {
   Books.createBook(title, author_id);
 
   return res.status(201).json({ message: 'Book created successfully' });
+});
+
+app.post('/users', async (req, res) => {
+  const { firstName, lastName, email, password } = req.body;
+  
+  if (!User.validateData(firstName, lastName, email, password))
+    return res.status(400).json({ error: true, message: 'Invalid Data' });
+
+  const user = await User.createUser(firstName, lastName, email, password);
+  
+  return res.status(201).json({
+    id: user.insertedId,
+    firstName,
+    lastName,
+    email,
+  })
+
 });
 
 app.listen(PORT, () => {
