@@ -100,6 +100,16 @@ app.post('/users', async (req, res) => {
 
 });
 
+app.get('/users', async (_req, res) => {
+  try {
+    const users = await User.getAllUsers();
+    
+    return res.status(200).json(users);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}` )
 });

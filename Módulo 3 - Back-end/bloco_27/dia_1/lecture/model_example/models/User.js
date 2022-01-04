@@ -12,17 +12,22 @@ const createUser = async (firstName, lastName, email, password) => {
     .then((db) => db.collection('users').insertOne({ firstName, lastName, email, password }))
 };
 
-
-
+const getAllUsers = async () => {
+  return connection()
+    .then((db) => db.collection('users').find().toArray()
+    .then((users) => users.map(({ _id, firstName, lastName, email }) => {
+      return {
+        _id,
+        firstName,
+        lastName,
+        email,
+      }
+    })
+  ));
+}
 
 module.exports = {
   validateData,
   createUser,
+  getAllUsers,
 }
-
-// const create = async (firstName, middleName, lastName) =>
-//     connection()
-//         .then((db) => db.collection('authors').insertOne({ firstName, middleName, lastName }))
-//         .then(result => getNewAuthor({ id: result.insertedId, firstName, middleName, lastName }));
-
-// // ...
