@@ -1,4 +1,5 @@
 const connection = require('./connection');
+const { ObjectId } = require('mongodb');
 
 const isValid = (title, author_id) => {
   if (!title || title.length < 3 || typeof title !== 'string') return false;
@@ -7,20 +8,43 @@ const isValid = (title, author_id) => {
   return true;
 };
 
-const getAllBooks = async () => {
-  const [books] = await connection.execute(
-    'SELECT * FROM model_example.books;'
-  );
+// // USING MySQL:
+// const getAllBooks = async () => {
+//   const [books] = await connection.execute(
+//     'SELECT * FROM model_example.books;'
+//   );
   
-    return books;
+//     return books;
+// };
+
+// // USING MongoDB:
+const getAllBooks = async () => {
+  return connection()
+    .then((db) => db.collection('books').find().toArray())
+      .then((books) =>
+      books.map(({ _id, title, author_id }) => {
+        return {
+          _id,
+          title,
+          author_id
+        }
+      }) 
+    )
 };
 
-const getByAuthorId = async (id) => {
-  const [book] = await connection.execute(
-    'SELECT * FROM model_example.books WHERE author_id = ?', [id]
-  );
+// // USING MySQL:
+// const getByAuthorId = async (id) => {
+//   const [book] = await connection.execute(
+//     'SELECT * FROM model_example.books WHERE author_id = ?', [id]
+//   );
 
-  return book;
+//   return book;
+// };
+
+// // USING MongoDB
+const getByAuthorId = async (id) => {
+  return connection()
+    .then((db) => db.collection('books').find({ author_id: Number(id) }).toArray())
 };
 
 const createBook = async (title, author_id) => {
