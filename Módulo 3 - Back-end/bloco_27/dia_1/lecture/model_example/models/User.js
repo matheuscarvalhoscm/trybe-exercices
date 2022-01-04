@@ -1,4 +1,5 @@
 const connection = require("./connection");
+const { ObjectId } = require('mongodb');
 
 const validateData = (firstName, lastName, email, password) => {
   if (!firstName || !lastName || !email || !password) return false;
@@ -26,8 +27,17 @@ const getAllUsers = async () => {
   ));
 }
 
+const getUserById = async (id) => {
+  if (!ObjectId.isValid(id)) {
+    return null;
+  }
+  return connection()
+    .then((db) => db.collection('users').findOne(new ObjectId(id)));
+}
+
 module.exports = {
   validateData,
   createUser,
   getAllUsers,
+  getUserById,
 }

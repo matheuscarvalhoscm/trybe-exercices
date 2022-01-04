@@ -108,7 +108,23 @@ app.get('/users', async (_req, res) => {
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
-})
+});
+
+app.get('/users/:id', async (req, res) => {
+  const { id } = req.params;
+  const user = await User.getUserById(id);
+  
+  if (!user) return res.status(404).json({ error: true, message: 'User not found' });
+
+  const { _id, firstName, lastName, email } = user;
+
+  return res.status(200).json({
+    id: _id,
+    firstName,
+    lastName,
+    email,
+  })
+});
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}` )
