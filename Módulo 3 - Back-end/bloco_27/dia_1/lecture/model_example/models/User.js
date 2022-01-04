@@ -17,7 +17,7 @@ const getAllUsers = async () => {
     .then((db) => db.collection('users').find().toArray()
     .then((users) => users.map(({ _id, firstName, lastName, email }) => {
       return {
-        _id,
+        id: _id,
         firstName,
         lastName,
         email,
