@@ -3,16 +3,26 @@ const ProductModel = require('../models/productModel');
 
 const router = express.Router();
 
+const HTTP_OK_STATUS = 200;
+const HTTP_ERROR_STATUS = 404;
+const HTTP_INTERNAL_STATUS = 500;
+
 router.get('/products', async (req, res, next) => {
   const products = await ProductModel.getAll();
 
-  res.send(products);
+  products 
+  ? res.status(HTTP_OK_STATUS).json(products)
+  : res.status(HTTP_ERROR_STATUS).json({ message: "There's no products registered" });
+
 });
 
 router.get('/products/:id', async (req, res, next) => {
   const product = await ProductModel.getById(req.params.id);
 
-  res.send(product);
+  product 
+  ? res.status(HTTP_OK_STATUS).json(product)
+  : res.status(HTTP_ERROR_STATUS).json({ message: "Product not found" });
+
 });
 
 router.post('/products', async (req, res) => {
@@ -20,21 +30,30 @@ router.post('/products', async (req, res) => {
 
   const newProduct = await ProductModel.add(name, brand);
 
-  res.send(newProduct);
+  newProduct
+  ? res.status(HTTP_OK_STATUS).json(newProduct)
+  : res.status(HTTP_INTERNAL_STATUS).json({ message: "Internal Error" });
+
 });
 
-router.post('/products/:id', async (req, res) => {
+router.delete('/products/:id', async (req, res) => {
   const products = await ProductModel.exclude(req.params.id);
 
-  res.send(products);
+  products
+  ? res.status(HTTP_OK_STATUS).json(products)
+  : res.status(HTTP_INTERNAL_STATUS).json({ message: "Internal Error" });
+
 });
 
-router.post('/products/:id', async (req, res) => {
+router.put('/products/:id', async (req, res) => {
   const { name, brand } = req.body;
 
   const products = await ProductModel.update(req.params.id, name, brand);
 
-  res.send(products);
+  products
+  ? res.status(HTTP_OK_STATUS).json(products)
+  : res.status(HTTP_INTERNAL_STATUS).json({ message: "Internal Error" });
+  
 });
 
 module.exports = router;
