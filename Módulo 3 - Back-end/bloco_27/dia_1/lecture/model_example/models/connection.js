@@ -4,7 +4,7 @@
 // const connection = mysql.createPool({
 //   host: 'localhost',
 //   user: 'test',
-//   password: 'Summer.03',
+//   password: '****',
 //   database: 'model_example'
 // });
 
