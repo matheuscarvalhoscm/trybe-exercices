@@ -13,9 +13,15 @@ const loginService = async (username, password) => {
     throw error
   }
 
+  const checkAdmin = (username, password) => {
+    if (username !== 'admin' && password !== 's3nh4S3gur4???') return false;
+    
+    return true;
+  };
+
   const payload = {
     username,
-    admin: false,
+    admin: checkAdmin(username, password),
   };
   
   const token = generateToke(payload);
