@@ -67,8 +67,8 @@ print(person)
 # Exercise 13:
 n = 5
 count, factorial = 1, 1
-while count < n:
-  factorial = factorial * (count + 1)
+while count <= n:
+  factorial = factorial * count
   count += 1
   print(factorial)
 
