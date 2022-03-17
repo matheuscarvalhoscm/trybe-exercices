@@ -1,4 +1,7 @@
 # Exercise 1:
+from math import factorial
+
+
 a = 10
 b = 5
 
@@ -60,3 +63,23 @@ person = {
   "idade": 29 
 }
 print(person)
+
+# Exercise 13:
+n = 5
+count, factorial = 1, 1
+while count < n:
+  factorial = factorial * (count + 1)
+  count += 1
+  print(factorial)
+
+# Exercise 14:
+ratings = [6, 8, 5, 9, 10]
+new_ratings = []
+for rating in ratings:
+  new_ratings.append(rating * 10)
+print(new_ratings)
+
+# Exercise 15:
+for rating in ratings:
+  if rating % 3 == 0:
+    print("Múltiplo de 3")
