@@ -1,8 +1,9 @@
 # Exercise 2:
 import random
 
-
-words = ["batata", "cebola", "tomate"]
+file = open("words.txt", mode="r")
+words = file.read()
+print(words)
 random_word = random.choice(words)
 scrambled_word = "".join(random.sample(random_word, len(random_word)))
 print(scrambled_word)
