@@ -1,3 +1,4 @@
+// Exercício 4: Crie uma classe Car cuja o objeto representará um carro.
 enum Colors {
   Black = 'Black',
   White = 'White',
@@ -66,6 +67,10 @@ class Car {
     console.log(`You turned to the ${direction}`);
   }
 }
+
+// Exercício 5: Vamos agora utilizar a classe Car que criamos no exercício anterior.
+// Uma pessoa motorista de aplicativo ira fazer uma viagem para pegar sua nova pessoa passageira.
+// Ele então entra em seu volkswagen gol prata de 4 portas, liga seu carro e começa o trajeto:
 
 const Renegade = new Car('Jeep', Colors.Black, 4);
 
